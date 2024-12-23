@@ -1,6 +1,6 @@
 # Kaneo
 
-![Kaneo Logo](https://path-to-your-logo-image.png)
+<!-- ![Kaneo Logo](https://path-to-your-logo-image.png) TODO: Add logo -->
 
 A minimalist approach to project management. No clutter, no complexity—just the tools you need to keep your team moving forward.
 
