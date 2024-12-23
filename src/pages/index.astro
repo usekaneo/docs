@@ -1,11 +1,59 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/layout.astro";
+import Header from "../components/header.astro";
+import Hero from "../components/hero.astro";
+import Feature from "../components/feature.astro";
+import Community from "../components/community.astro";
+import Footer from "../components/footer.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const features = [
+  {
+    title: "Organize Tasks",
+    description:
+      "Group your tasks into collections for easy access. Perfect for organizing sprints and projects.",
+    delay: "0",
+  },
+  {
+    title: "Track Progress",
+    description:
+      "Monitor task completion and team velocity with simple, actionable metrics.",
+    delay: "100",
+  },
+  {
+    title: "Share Work",
+    description:
+      "Collaborate seamlessly with shareable task boards and real-time updates.",
+    delay: "200",
+  },
+  {
+    title: "Stay Focused",
+    description:
+      "Minimize distractions with a clean, focused interface designed for productivity.",
+    delay: "300",
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <Hero />
+  <div class={`max-w-5xl mx-auto px-6`}>
+    <div class="feature-grid">
+      {features.map((feature, index) => <Feature key={index} {...feature} />)}
+    </div>
+  </div>
+  <Community />
+  <Footer />
 </Layout>
+
+<style>
+  .feature-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgb(24 24 27 / 0.5) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+</style>

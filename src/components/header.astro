@@ -1,0 +1,40 @@
+---
+import { CircleSlash2, Github } from 'lucide-astro';
+---
+
+<nav class="fixed w-full z-50 bg-black/50 backdrop-blur-sm border-b border-zinc-900">
+    <div class={`max-w-5xl mx-auto px-6`}>
+      <div class="flex items-center justify-between h-20">
+        <div class="flex items-center gap-3">
+          <CircleSlash2 size={24} class="text-white" />
+          <div>
+            <span class="text-xl font-semibold tracking-tight">Kaneo</span>
+            <span class="text-sm text-zinc-500 ml-2 tracking-wide">BETA</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8">
+          <div class="hidden md:flex items-center gap-6 text-sm text-zinc-400">
+            <a href="#features" class="hover-link">Features</a>
+            <a href="#community" class="hover-link">Community</a>
+            <a href="https://github.com" class="hover-link flex items-center gap-1">
+              <Github size={16} />
+              GitHub
+            </a>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <a href="/docs" class="text-sm text-zinc-400 hover-link">
+              Documentation
+            </a>
+            <a 
+              href="https://github.com/caneo/caneo" 
+              class="text-sm px-4 py-2 rounded-lg bg-white text-black hover:bg-zinc-200 transition-colors"
+            >
+              Star on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

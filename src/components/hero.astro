@@ -1,0 +1,40 @@
+---
+import { ArrowRight, Sparkles } from 'lucide-astro';
+---
+
+<section class="pt-32 pb-20">
+    <div class={`max-w-5xl mx-auto px-6`}>
+      <div class="max-w-3xl space-y-16">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 text-sm mb-8">
+            <Sparkles size={16} class="text-yellow-500" />
+            <span class="text-zinc-400">Launching our new workflow features</span>
+          </div>
+          
+          <h1 class="text-6xl font-bold mb-6 tracking-tight gradient-text">
+            Task tracking that feels natural
+          </h1>
+          <p class="text-xl text-zinc-400 mb-8 leading-relaxed">
+            A minimalist approach to project management. No clutter, no complexity—just 
+            the tools you need to keep your team moving forward.
+          </p>
+          
+          <div class="flex items-center gap-4">
+            <button class="group px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-zinc-200 transition-colors">
+              Get Started 
+              <ArrowRight class="inline ml-2 group-hover:translate-x-1 transition-transform" size={16} />
+            </button>
+            <a href="#demo" class="text-zinc-400 hover:text-white transition-colors">
+              See it in action →
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="feature-grid">
+          {features.map((feature, index) => (
+            <Feature key={index} {...feature} />
+          ))}
+        </div> -->
+      </div>
+    </div>
+  </section>

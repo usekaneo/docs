@@ -1,0 +1,105 @@
+---
+import {
+  Github,
+  GitFork,
+  Users,
+  Star,
+  MessageCircle,
+  Code2,
+} from "lucide-astro";
+import CommunityCard from "./community-card.astro";
+
+const communityFeatures = [
+  {
+    icon: Code2,
+    title: "Open Source",
+    description: "Licensed under MIT. Free to use, modify, and distribute.",
+    link: "/license",
+    linkText: "View License"
+  },
+  {
+    icon: Users,
+    title: "Active Community",
+    description: "Join discussions, share ideas, and collaborate with others.",
+    link: "/discord",
+    linkText: "Join Discord"
+  },
+  {
+    icon: GitFork,
+    title: "Easy to Contribute",
+    description: "Well-documented codebase with clear contribution guidelines.",
+    link: "/docs/contributing",
+    linkText: "Start Contributing"
+  },
+  {
+    icon: MessageCircle,
+    title: "Community Support",
+    description: "Get help from the community through GitHub discussions.",
+    link: "/discussions",
+    linkText: "Join Discussions"
+  },
+  {
+    icon: Star,
+    title: "Regular Updates",
+    description: "Frequent releases with new features and improvements.",
+    link: "/releases",
+    linkText: "View Releases"
+  },
+  {
+    icon: Github,
+    title: "GitHub Integration",
+    description: "Seamlessly integrate with your GitHub workflow.",
+    link: "/docs/github-integration",
+    linkText: "Learn More"
+  }
+];
+---
+
+<section class="py-20 border-t border-zinc-900" id="community">
+  <div class={`max-w-5xl mx-auto px-6`}>
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight">Open Source Community</h2>
+      <p class="mt-4 text-lg text-zinc-400">
+        Kaneo is built in the open with contributions from developers around the
+        world. Join our community and help shape the future of task management.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {communityFeatures.map((feature, index) => (
+          <CommunityCard key={index} {...feature}>
+            <feature.icon size={32} />
+          </CommunityCard>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-16 p-8 rounded-xl bg-gradient-to-b from-zinc-900 to-zinc-950 border border-zinc-800"
+    >
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Ready to contribute?</h3>
+          <p class="text-zinc-400">
+            Check out our contribution guidelines and get started.
+          </p>
+        </div>
+        <div class="flex gap-4 flex-col w-full md:flex-row md:w-auto">
+          <a
+            href="https://github.com/aacevski/kaneo"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-zinc-200 transition-colors"
+          >
+            <Github size={18} />
+            View on GitHub
+          </a>
+          <a
+            href="/docs/contributing"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
