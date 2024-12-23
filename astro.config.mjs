@@ -8,5 +8,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://kaneo-app.github.io',
-  base: 'kaneo',
+  base: '/landing-page',
 });
