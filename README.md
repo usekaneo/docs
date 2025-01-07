@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/kaneo-app/app">
+  <a href="https://github.com/kaneo-app/landing-page/src/assets/logo.svg">
     <img src="./assets/logo.svg" alt="Kaneo logo" width="100" />
   </a>
 </p>
