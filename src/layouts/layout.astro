@@ -1,10 +1,15 @@
 ---
+import { SEO } from "astro-seo";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import "../styles/global.css";
 
 const title = "Kaneo";
 const description = "Project management made simple for teams";
+let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1);
+
+const ogImage = new URL("/og-image.png", Astro.site).toString();
 ---
 
 <!doctype html>
@@ -14,14 +19,28 @@ const description = "Project management made simple for teams";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Kaneo - Project management made simple for teams</title>
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content='/og-image.png' />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content='/og-image.png' />
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalURL.slice()}
+      twitter={{
+        creator: "@kaneoapp",
+        site: "@kaneoapp",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: title,
+          image: ogImage,
+        },
+        image: {
+          alt: "Kaneo's landing page",
+        },
+      }}
+    />
   </head>
   <body class="min-h-screen bg-white dark:bg-zinc-950">
     <Header />
