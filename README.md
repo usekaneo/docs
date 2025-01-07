@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://raw.githubusercontent.com/kaneo-app/landing-page/refs/heads/main/public/favicon.svg">
-    <img src="./assets/logo.svg" alt="Kaneo logo" width="100" />
+  <a href="https://github.com/kaneo-app/app">
+    <img src="https://raw.githubusercontent.com/kaneo-app/landing-page/refs/heads/main/public/favicon.svg" alt="Kaneo logo" width="100" />
   </a>
 </p>
 <h1 align="center">Kaneo</h1>
