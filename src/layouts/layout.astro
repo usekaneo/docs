@@ -1,11 +1,12 @@
 ---
-import { SEO } from "astro-seo";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import "../styles/global.css";
 
 const title = "Kaneo";
-const description = "Project management made simple for teams";
+const subtitle = "Project management made simple for teams";
+const description =
+	"An open source project management platform focused on simplicity and efficiency. Self-host it, customize it, make it yours.";
 let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1);
 
@@ -20,27 +21,24 @@ const ogImage = new URL("/og-image.png", Astro.site).toString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <SEO
-      title={title}
-      description={description}
-      canonical={canonicalURL.slice()}
-      twitter={{
-        creator: "@kaneoapp",
-        site: "@kaneoapp",
-        card: "summary_large_image",
-      }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: title,
-          image: ogImage,
-        },
-        image: {
-          alt: "Kaneo's landing page",
-        },
-      }}
-    />
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={`${title} - ${subtitle}`}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="caneo.app">
+    <meta property="twitter:url" content={canonicalURL}>
+    <meta name="twitter:title" content={`${title} - ${subtitle}`}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImage}>
+    
   </head>
   <body class="min-h-screen bg-white dark:bg-zinc-950">
     <Header />
