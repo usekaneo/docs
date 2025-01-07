@@ -1,105 +1,131 @@
 ---
-import {
-  Github,
-  GitFork,
-  Users,
-  Star,
-  MessageCircle,
-  Code2,
-} from "lucide-astro";
-import CommunityCard from "./community-card.astro";
-
-const communityFeatures = [
-  {
-    icon: Code2,
-    title: "Open Source",
-    description: "Licensed under MIT. Free to use, modify, and distribute.",
-    link: "/license",
-    linkText: "View License"
-  },
-  {
-    icon: Users,
-    title: "Active Community",
-    description: "Join discussions, share ideas, and collaborate with others.",
-    link: "/discord",
-    linkText: "Join Discord"
-  },
-  {
-    icon: GitFork,
-    title: "Easy to Contribute",
-    description: "Well-documented codebase with clear contribution guidelines.",
-    link: "/docs/contributing",
-    linkText: "Start Contributing"
-  },
-  {
-    icon: MessageCircle,
-    title: "Community Support",
-    description: "Get help from the community through GitHub discussions.",
-    link: "/discussions",
-    linkText: "Join Discussions"
-  },
-  {
-    icon: Star,
-    title: "Regular Updates",
-    description: "Frequent releases with new features and improvements.",
-    link: "/releases",
-    linkText: "View Releases"
-  },
-  {
-    icon: Github,
-    title: "GitHub Integration",
-    description: "Seamlessly integrate with your GitHub workflow.",
-    link: "/docs/github-integration",
-    linkText: "Learn More"
-  }
-];
+import { Github, MessageSquare, Twitter } from "lucide-astro";
+import { Button } from "./ui/button";
 ---
 
-<section class="py-20 border-t border-zinc-900" id="community">
-  <div class={`max-w-5xl mx-auto px-6`}>
-    <div class="max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight">Open Source Community</h2>
-      <p class="mt-4 text-lg text-zinc-400">
-        Kaneo is built in the open with contributions from developers around the
-        world. Join our community and help shape the future of task management.
+<div class="py-24 bg-white dark:bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2
+        class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+      >
+        Join Our Community
+      </h2>
+      <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+        Connect with other developers, share ideas, and help shape the future of
+        Kaneo
       </p>
     </div>
 
-    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {communityFeatures.map((feature, index) => (
-          <CommunityCard key={index} {...feature}>
-            <feature.icon size={32} />
-          </CommunityCard>
-        ))
-      }
+    <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <a
+        href="https://github.com/orgs/kaneo-app/discussions"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="community-item group relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
+      >
+        <Github
+          class="h-8 w-8 text-zinc-600 dark:text-zinc-400 mb-4 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors"
+        />
+        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+          GitHub Discussions
+        </h3>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          Ask questions, share ideas, and connect with other developers
+        </p>
+      </a>
+
+      <a
+        href="https://discord.gg/rb8PwVta"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="community-item group relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
+      >
+        <MessageSquare
+          className="h-8 w-8 text-zinc-600 dark:text-zinc-400 mb-4 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors"
+        />
+        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+          Discord Community
+        </h3>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          Chat with the community and get real-time help
+        </p>
+      </a>
+
+      <a
+        href="hhttps://x.com/kaneoapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="community-item group relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
+      >
+        <Twitter
+          class="h-8 w-8 text-zinc-600 dark:text-zinc-400 mb-4 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors"
+        />
+        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
+          Twitter Updates
+        </h3>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          Follow us for the latest news and updates
+        </p>
+      </a>
     </div>
 
-    <div
-      class="mt-16 p-8 rounded-xl bg-gradient-to-b from-zinc-900 to-zinc-950 border border-zinc-800"
-    >
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Ready to contribute?</h3>
-          <p class="text-zinc-400">
-            Check out our contribution guidelines and get started.
-          </p>
-        </div>
-        <div class="flex gap-4 flex-col w-full md:flex-row md:w-auto">
-          <a
-            href="https://github.com/aacevski/kaneo"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-zinc-200 transition-colors"
-          >
-            <Github size={18} />
-            View on GitHub
-          </a>
-          <a
-            href="/docs/contributing"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
+    <div class="mt-16 text-center">
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+        onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+      >
+        <Github class="w-4 h-4 mr-2" />
+        Star on GitHub
+      </button>
     </div>
   </div>
-</section>
+</div>
+
+<script>
+  // src/assets/communityAnimations.js
+  import { gsap } from "gsap";
+
+  export const applyCommunityAnimations = () => {
+    const sections = document.querySelectorAll(".community-item");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry, index) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.hasAttribute("data-animated")
+          ) {
+            // Trigger the animation when the element is in view and not yet animated
+            gsap.fromTo(
+              entry.target,
+              { opacity: 0, y: 20 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: index * 0.1,
+              },
+            );
+
+            // Mark the element as animated by setting a data attribute
+            entry.target.setAttribute("data-animated", "true");
+
+            // Stop observing the element after it has been animated
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is in view
+        rootMargin: "0px 0px 100px 0px", // Add some margin to trigger earlier
+      },
+    );
+
+    sections.forEach((element) => {
+      observer.observe(element);
+    });
+  };
+
+  window.addEventListener("load", applyCommunityAnimations);
+</script>

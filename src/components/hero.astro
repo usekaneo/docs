@@ -1,40 +1,132 @@
 ---
-import { ArrowRight, Sparkles } from 'lucide-astro';
+import { ExternalLink, Github, Terminal } from "lucide-astro";
+import { Button } from "./ui/button";
 ---
 
-<section class="pt-32 pb-20">
-    <div class={`max-w-5xl mx-auto px-6`}>
-      <div class="max-w-3xl space-y-16">
-        <div>
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 text-sm mb-8">
-            <Sparkles size={16} class="text-yellow-500" />
-            <span class="text-zinc-400">Launching our new workflow features</span>
-          </div>
-          
-          <h1 class="text-6xl font-bold mb-6 tracking-tight gradient-text">
-            Task tracking that feels natural
-          </h1>
-          <p class="text-xl text-zinc-400 mb-8 leading-relaxed">
-            A minimalist approach to project management. No clutter, no complexity—just 
-            the tools you need to keep your team moving forward.
-          </p>
-          
-          <div class="flex items-center gap-4">
-            <button class="group px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-zinc-200 transition-colors">
-              Get Started 
-              <ArrowRight class="inline ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-            </button>
-            <a href="#demo" class="text-zinc-400 hover:text-white transition-colors">
-              See it in action →
-            </a>
-          </div>
+<div class="relative overflow-hidden">
+    <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32"
+    >
+        <div id="headline">
+            <h1
+                class="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-zinc-900 dark:text-white sm:text-7xl"
+            >
+                Project management{" "}
+                <span
+                    class="relative whitespace-nowrap text-indigo-600 dark:text-indigo-400"
+                >
+                    <span class="relative">made simple</span>
+                </span>{" "}
+                for teams
+            </h1>
+            <p
+                class="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400"
+            >
+                An open source project management platform focused on simplicity
+                and efficiency. Self-host it, customize it, make it yours.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <button
+                    onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 h-12 px-6"
+                >
+                    <Github className="w-4 h-4 mr-2" />
+                    Star on GitHub
+                </button>
+                <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 h-12 px-6"
+                    onclick="window.open('https://demo.kaneo.app', '_blank')"
+                >
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Try Demo
+                </button>
+                <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 h-12 px-6"
+                    onclick="window.location.href='/docs'"
+                >
+                    <Terminal className="mr-2 h-4 w-4" />
+                    Documentation
+                </button>
+            </div>
         </div>
 
-        <!-- <div class="feature-grid">
-          {features.map((feature, index) => (
-            <Feature key={index} {...feature} />
-          ))}
-        </div> -->
-      </div>
+        <div id="open-source-section" class="mt-16">
+            <div class="relative">
+                <div
+                    class="absolute inset-0 flex items-center"
+                    aria-hidden="true"
+                >
+                    <div
+                        class="w-full border-t border-zinc-200 dark:border-zinc-800"
+                    >
+                    </div>
+                </div>
+                <div
+                    class="relative flex justify-center text-sm font-medium leading-6"
+                >
+                    <span
+                        class="bg-white dark:bg-zinc-950 px-6 text-zinc-600 dark:text-zinc-400"
+                    >
+                        Open Source and Self-Hosted
+                    </span>
+                </div>
+            </div>
+
+            <div
+                class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center"
+            >
+                <div
+                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
+                >
+                    <h3 class="font-medium text-zinc-900 dark:text-white mb-1">
+                        MIT License
+                    </h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Free and open source forever
+                    </p>
+                </div>
+                <div
+                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
+                >
+                    <h3 class="font-medium text-zinc-900 dark:text-white mb-1">
+                        Self-Hosted
+                    </h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Full control over your data
+                    </p>
+                </div>
+                <div
+                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
+                >
+                    <h3 class="font-medium text-zinc-900 dark:text-white mb-1">
+                        Extensible
+                    </h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Build your own features
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+</div>
+
+<script>
+    import { gsap } from "gsap";
+    gsap.fromTo(
+        "#headline h1",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5 },
+    );
+
+    gsap.fromTo(
+        "#headline p",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, delay: 0.2 },
+    );
+
+    gsap.fromTo(
+        "#open-source-section",
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.2 },
+    );
+</script>

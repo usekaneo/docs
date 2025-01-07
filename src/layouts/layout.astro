@@ -1,3 +1,12 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import "../styles/global.css";
+
+const title = "Kaneo";
+const description = "Project management made simple for teams";
+---
+
 <!doctype html>
 <html lang="en" class="scroll-smooth dark">
   <head>
@@ -5,10 +14,19 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Kaneo - Project management made simple for teams</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content='/og-image.png' />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content='/og-image.png' />
   </head>
-  <body class="min-h-screen bg-background font-sans antialiased">
+  <body class="min-h-screen bg-white dark:bg-zinc-950">
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 

@@ -1,40 +1,112 @@
 ---
-import { CircleSlash2, Github } from 'lucide-astro';
+import Logo from "@/components/logo.astro";
+import { Button } from "@/components/ui/button";
+import { Github, Menu, X } from "lucide-astro";
+import ThemeToggle from "./theme-toggle.astro";
 ---
 
-<nav class="fixed w-full z-50 bg-black/50 backdrop-blur-sm border-b border-zinc-900">
-    <div class={`max-w-5xl mx-auto px-6`}>
-      <div class="flex items-center justify-between h-20">
-        <div class="flex items-center gap-3">
-          <CircleSlash2 size={24} class="text-white" />
-          <div>
-            <span class="text-xl font-semibold tracking-tight">Kaneo</span>
-            <span class="text-sm text-zinc-500 ml-2 tracking-wide">BETA</span>
-          </div>
-        </div>
-        
-        <div class="flex items-center gap-8">
-          <div class="hidden md:flex items-center gap-6 text-sm text-zinc-400">
-            <a href="#features" class="hover-link">Features</a>
-            <a href="#community" class="hover-link">Community</a>
-            <a href="https://github.com" class="hover-link flex items-center gap-1">
-              <Github size={16} />
-              GitHub
-            </a>
-          </div>
-          
-          <div class="flex items-center gap-4">
-            <a href="/docs" class="text-sm text-zinc-400 hover-link">
-              Documentation
-            </a>
-            <a 
-              href="https://github.com/caneo/caneo" 
-              class="text-sm px-4 py-2 rounded-lg bg-white text-black hover:bg-zinc-200 transition-colors"
-            >
-              Star on GitHub
-            </a>
-          </div>
-        </div>
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800"
+>
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <Logo />
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex md:items-center md:gap-x-8">
+        <a
+          href="#features"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Features
+        </a>
+        <a
+          href="#community"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Community
+        </a>
+        <a
+          href="docs"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Docs
+        </a>
+        <ThemeToggle />
+        <button
+          onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+        >
+          <Github class="w-4 h-4 mr-2" />
+          Star on GitHub
+        </button>
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+        >
+          Get Started
+      </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center gap-4 md:hidden">
+        <ThemeToggle />
+        <button
+          id="menuButton"
+          class="shadow-none inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 p-2 text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300"
+        >
+          <Menu id="menuIcon" class="h-6 w-6" />
+          <X id="closeIcon" class="h-6 w-6 hidden" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden py-4">
+      <div class="flex flex-col gap-4">
+        <a
+          href="#features"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Features
+        </a>
+        <a
+          href="#community"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Community
+        </a>
+        <a
+          href="docs"
+          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Docs
+        </a>
+        <button
+          onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+        >
+          <Github class="w-4 h-4 mr-2" />
+          Star on GitHub
+        </button>
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 w-full"
+        >
+          Get Started
+        </button>
       </div>
     </div>
   </nav>
+</header>
+
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuIcon = document.getElementById("menuIcon");
+  const closeIcon = document.getElementById("closeIcon");
+
+  menuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+    menuIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
+  });
+</script>

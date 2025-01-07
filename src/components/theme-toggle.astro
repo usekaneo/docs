@@ -1,0 +1,41 @@
+---
+import { Moon, Sun } from "lucide-astro";
+const id = Math.random().toString(36).substring(2, 15);
+---
+
+<button
+  id={`themeToggle-${id}`}
+  class="p-2 text-zinc-500 hover:text-zinc-700 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-300 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+  title="Switch theme"
+>
+  <Moon id={`moonIcon-${id}`} class="w-5 h-5" />
+  <Sun id={`sunIcon-${id}`} class="w-5 h-5 hidden" />
+</button>
+
+<script is:inline define:vars={{ id }}>
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    const isDark = element.classList.contains("dark");
+    const moonIcon = document.getElementById(`moonIcon-${id}`);
+    const sunIcon = document.getElementById(`sunIcon-${id}`);
+
+    element.classList.toggle("dark");
+    
+    if (isDark) {
+      moonIcon?.classList.remove('hidden');
+      sunIcon?.classList.add('hidden');
+      localStorage.setItem('theme', 'light');
+    } else {
+      moonIcon?.classList.add('hidden');
+      sunIcon?.classList.remove('hidden');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  document.getElementById(`themeToggle-${id}`)?.addEventListener("click", handleToggleClick);
+
+  if (document.documentElement.classList.contains('dark')) {
+    document.getElementById(`moonIcon-${id}`)?.classList.add('hidden');
+    document.getElementById(`sunIcon-${id}`)?.classList.remove('hidden');
+  }
+</script>

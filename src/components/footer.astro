@@ -1,11 +1,64 @@
-<footer class="py-8 text-center text-sm text-zinc-600">
-    <div class="space-x-4">
-      <a href="/privacy" class="hover-link">
-        Privacy
-      </a>
-      <a href="/terms" class="hover-link">
-        Terms
-      </a>
-      <span>Built with ❤️</span>
+---
+import Logo from "./logo.astro";
+
+const navigation = {
+	product: [
+		{ name: "Features", href: "#" },
+		{ name: "Roadmap", href: "#" },
+	],
+	social: [
+		{ name: "Twitter", href: "https://x.com/kaneoapp" },
+		{ name: "GitHub", href: "https://github.com/kaneo-app/app" },
+		{ name: "Discord", href: "https://discord.gg/rb8PwVta" },
+	],
+};
+---
+
+<footer class="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="space-y-8">
+          <Logo />
+          <p class="text-zinc-600 dark:text-zinc-400 text-sm">
+            Making project management simple and efficient for teams worldwide.
+          </p>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Product</h3>
+              <ul class="mt-4 space-y-4">
+                {navigation.product.map((item) => (
+                  <li>
+                    <a href={item.href} class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-12 md:mt-0" />
+          </div>
+          <div class="md:grid md:grid-cols-1 md:gap-8">
+            <div class="mt-12 md:mt-0">
+              <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Social</h3>
+              <ul class="mt-4 space-y-4">
+                {navigation.social.map((item) => (
+                  <li>
+                    <a href={item.href} class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-8">
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 text-center">
+          Built with ❤️
+        </p>
+      </div>
     </div>
   </footer>

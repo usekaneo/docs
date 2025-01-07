@@ -1,0 +1,112 @@
+---
+import { Calendar, Cloud, Kanban, Lock, Users, Zap } from "lucide-astro";
+
+const features = [
+	{
+		name: "Visual Task Management",
+		description: "Organize tasks with our intuitive kanban board interface.",
+		icon: Kanban,
+	},
+	{
+		name: "Team Collaboration",
+		description:
+			"Work together seamlessly with real-time updates and comments.",
+		icon: Users,
+	},
+	{
+		name: "Project Timeline",
+		description: "Track project progress with interactive timeline views.",
+		icon: Calendar,
+	},
+	{
+		name: "Automation",
+		description: "Automate repetitive tasks and boost productivity.",
+		icon: Zap,
+	},
+	{
+		name: "Cloud or Self-hosted",
+		description:
+			"Choose between our cloud service or self-host on your infrastructure.",
+		icon: Cloud,
+	},
+	{
+		name: "Data Privacy",
+		description: "Keep your data secure with end-to-end encryption.",
+		icon: Lock,
+	},
+];
+---
+
+<div class="py-24 bg-white dark:bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2
+        class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+      >
+        Everything you need to manage projects
+      </h2>
+      <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+        Powerful features to help your team succeed
+      </p>
+    </div>
+
+    <div class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature) => (
+          <div class="feature-item relative">
+            <div class="absolute inset-0 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 transform -rotate-6 scale-95 transition-transform group-hover:rotate-0 group-hover:scale-100" />
+            <div class="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8">
+              <feature.icon class="h-8 w-8 text-indigo-600 dark:text-indigo-400 mb-4" />
+              <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">
+                {feature.name}
+              </h3>
+              <p class="mt-2 text-zinc-600 dark:text-zinc-400">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  const applyFeaturesAnimations = () => {
+    const featureElements = document.querySelectorAll(".feature-item");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry, index) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.hasAttribute("data-animated")
+          ) {
+            gsap.fromTo(
+              entry.target,
+              { opacity: 0, y: 20 },
+              { opacity: 1, y: 0, duration: 0.5, delay: index * 0.1 },
+            );
+
+            entry.target.setAttribute("data-animated", "true");
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        rootMargin: "0px 0px 100px 0px", 
+      },
+    );
+
+    featureElements.forEach((element) => {
+      element.removeAttribute("data-animated");
+      observer.observe(element);
+    });
+  };
+
+  window.addEventListener("load", applyFeaturesAnimations);
+</script>
