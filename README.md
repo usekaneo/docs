@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/kaneo-app/landing-page/public/favicon.svg">
+  <a href="https://raw.githubusercontent.com/kaneo-app/landing-page/refs/heads/main/public/favicon.svg">
     <img src="./assets/logo.svg" alt="Kaneo logo" width="100" />
   </a>
 </p>
