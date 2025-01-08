@@ -5,30 +5,42 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
 <div class="py-24 bg-zinc-50 dark:bg-zinc-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+      <h2
+        class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+      >
         Built in the Open
       </h2>
       <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-        Kaneo is free and open source. Join us in making project management accessible to everyone.
+        Kaneo is free and open source. Join us in making project management
+        accessible to everyone.
       </p>
     </div>
 
     <div class="mt-16">
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <!-- Open Source Section -->
-        <div class="feature-item relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8">
+        <div
+          class="feature-item relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8"
+        >
           <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-4">
             Open Source
           </h3>
           <p class="text-zinc-600 dark:text-zinc-400 mb-6">
-            Licensed under MIT, you're free to use, modify, and distribute Kaneo however you want.
+            Licensed under MIT, you're free to use, modify, and distribute Kaneo
+            however you want.
           </p>
           <div class="flex gap-4">
-            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200">
+            <button
+              onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            >
               <Github class="w-4 h-4 mr-2" />
               View on GitHub
             </button>
-            <button onclick="window.open('https://github.com/kaneo-app/app/stargazers', '_blank')" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700">
+            <button
+              onclick="window.open('https://github.com/kaneo-app/app/stargazers', '_blank')"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+            >
               <Star class="w-4 h-4 mr-2" />
               Star
             </button>
@@ -36,23 +48,32 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
         </div>
 
         <!-- Community Driven Section -->
-        <div class="feature-item relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8">
+        <div
+          class="feature-item relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8"
+        >
           <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-4">
             Community Driven
           </h3>
           <p class="text-zinc-600 dark:text-zinc-400 mb-6">
-            Join our growing community of developers and contributors shaping the future of Kaneo.
+            Join our growing community of developers and contributors shaping
+            the future of Kaneo.
           </p>
           <div class="flex gap-4 flex-col md:flex-row">
-            <div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <div
+              class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
+            >
               <Star class="w-4 h-4" />
               <span>0 stars</span>
             </div>
-            <div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <div
+              class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
+            >
               <GitFork class="w-4 h-4" />
               <span>0 forks</span>
             </div>
-            <div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <div
+              class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
+            >
               <Heart class="w-4 h-4" />
               <span>1 contributor(s)</span>
             </div>
@@ -64,38 +85,43 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
 </div>
 
 <script>
-import { gsap } from 'gsap';
+  import { gsap } from "gsap";
 
+  export const applyOpenSourceAnimations = () => {
+    const sections = document.querySelectorAll(".feature-item");
 
-export const applyOpenSourceAnimations = () => {
-  const sections = document.querySelectorAll('.feature-item');
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry, index) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.hasAttribute("data-animated")
+          ) {
+            // Trigger the animation when the element is in view and not yet animated
+            gsap.fromTo(
+              entry.target,
+              { opacity: 0, y: 20 },
+              { opacity: 1, y: 0, duration: 0.5, delay: index * 0.1 },
+            );
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
-        // Trigger the animation when the element is in view and not yet animated
-        gsap.fromTo(
-          entry.target,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5, delay: index * 0.1 }
-        );
-        
-        // Mark the element as animated by setting a data attribute
-        entry.target.setAttribute('data-animated', 'true');
+            // Mark the element as animated by setting a data attribute
+            entry.target.setAttribute("data-animated", "true");
 
-        // Stop observing the element after it has been animated
-        observer.unobserve(entry.target);
-      }
+            // Stop observing the element after it has been animated
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is in view
+        rootMargin: "0px 0px 100px 0px", // Add some margin to trigger earlier
+      },
+    );
+
+    sections.forEach((element) => {
+      observer.observe(element);
     });
-  }, {
-    threshold: 0.5, // Trigger when 50% of the element is in view
-    rootMargin: '0px 0px 100px 0px', // Add some margin to trigger earlier
-  });
+  };
 
-  sections.forEach((element) => {
-    observer.observe(element);
-  });
-};
-
-window.addEventListener("load", applyOpenSourceAnimations);
+  window.addEventListener("load", applyOpenSourceAnimations);
 </script>
