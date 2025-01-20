@@ -24,8 +24,8 @@ importers:
         specifier: ^3.12.7
         version: 3.12.7
       lucide-astro:
-        specifier: ^0.471.0
-        version: 0.471.0(astro@5.1.7(jiti@2.4.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1))
+        specifier: ^0.473.0
+        version: 0.473.0(astro@5.1.7(jiti@2.4.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1))
       lucide-react:
         specifier: ^0.471.1
         version: 0.471.1(react@19.0.0)
@@ -1107,8 +1107,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lucide-astro@0.471.0:
-    resolution: {integrity: sha512-4dLwQU0opG7X9y/etUCGO8Rwvn/7C/XVdnlfbdpIU3+fAIZPuQRxHppaCLlD+JIsVXvP3sfX1lJ2qn/QKMaOaQ==}
+  lucide-astro@0.473.0:
+    resolution: {integrity: sha512-MM4P4rwF9Lypb49TQKa3tbuDZqwrL36wI2O5UTJIuH5H+ugSYx9FUxr6j3DqTwxDclHbwX/VBt5f9OXfAE/zRQ==}
     peerDependencies:
       astro: '>=2.7.1'
 
@@ -2972,7 +2972,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lucide-astro@0.471.0(astro@5.1.7(jiti@2.4.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)):
+  lucide-astro@0.473.0(astro@5.1.7(jiti@2.4.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)):
     dependencies:
       astro: 5.1.7(jiti@2.4.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)
 
