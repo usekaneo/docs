@@ -1,5 +1,15 @@
 ---
 import { GitFork, Github, Heart, Star } from "lucide-astro";
+
+const repositoryResponse = await fetch(
+	"https://api.github.com/repos/kaneo-app/app",
+);
+const contributorsResponse = await fetch(
+	"https://api.github.com/repos/kaneo-app/app/contributors",
+);
+
+const repository = await repositoryResponse.json();
+const contributors = await contributorsResponse.json();
 ---
 
 <div class="py-24 bg-zinc-50 dark:bg-zinc-900">
@@ -63,19 +73,19 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <Star class="w-4 h-4" />
-              <span>0 stars</span>
+              <span>{repository.stargazers_count} stars</span>
             </div>
             <div
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <GitFork class="w-4 h-4" />
-              <span>0 forks</span>
+              <span>{repository.forks_count} forks</span>
             </div>
             <div
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <Heart class="w-4 h-4" />
-              <span>1 contributor(s)</span>
+              <span>{contributors.length} contributors</span>
             </div>
           </div>
         </div>
