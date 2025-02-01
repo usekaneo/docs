@@ -2,7 +2,7 @@
 import Layout from "@/layouts/layout.astro";
 ---
 
-<script  is:inline>
+<script is:inline>
   let copied = false;
 
   const copyToClipboard = (text) => {
@@ -44,9 +44,11 @@ volumes:
 </script>
 
 <Layout>
-<div class="pt-32 pb-16">
+  <div class="pt-32 pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 opacity-0 transition-all duration-500 animate-in fade-in-up">
+      <div
+        class="text-center mb-16 opacity-0 transition-all duration-500 animate-in fade-in-up"
+      >
         <h1 class="text-4xl font-bold text-zinc-900 dark:text-white mb-4">
           Self-Hosting Guide
         </h1>
@@ -56,7 +58,9 @@ volumes:
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5 rounded-xl p-6 border border-blue-500/10 dark:border-purple-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-100">
+        <div
+          class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5 rounded-xl p-6 border border-blue-500/10 dark:border-purple-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-100"
+        >
           <div class="h-8 w-8 text-blue-500 dark:text-blue-400 mb-4">🚀</div>
           <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
             Quick Setup
@@ -66,7 +70,9 @@ volumes:
           </p>
         </div>
 
-        <div class="bg-gradient-to-br from-green-500/10 to-emerald-500/10 dark:from-green-500/5 dark:to-emerald-500/5 rounded-xl p-6 border border-green-500/10 dark:border-emerald-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-200">
+        <div
+          class="bg-gradient-to-br from-green-500/10 to-emerald-500/10 dark:from-green-500/5 dark:to-emerald-500/5 rounded-xl p-6 border border-green-500/10 dark:border-emerald-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-200"
+        >
           <div class="h-8 w-8 text-green-500 dark:text-green-400 mb-4">🛡️</div>
           <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
             Secure by Default
@@ -76,8 +82,12 @@ volumes:
           </p>
         </div>
 
-        <div class="bg-gradient-to-br from-orange-500/10 to-red-500/10 dark:from-orange-500/5 dark:to-red-500/5 rounded-xl p-6 border border-orange-500/10 dark:border-red-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-300">
-          <div class="h-8 w-8 text-orange-500 dark:text-orange-400 mb-4">💾</div>
+        <div
+          class="bg-gradient-to-br from-orange-500/10 to-red-500/10 dark:from-orange-500/5 dark:to-red-500/5 rounded-xl p-6 border border-orange-500/10 dark:border-red-500/10 opacity-0 transition-all duration-500 animate-in fade-in-up delay-300"
+        >
+          <div class="h-8 w-8 text-orange-500 dark:text-orange-400 mb-4">
+            💾
+          </div>
           <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-2">
             Data Control
           </h3>
@@ -88,7 +98,9 @@ volumes:
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="opacity-0 transition-all duration-500 animate-in fade-in-up delay-400">
+        <div
+          class="opacity-0 transition-all duration-500 animate-in fade-in-up delay-400"
+        >
           <h2 class="text-2xl font-semibold text-zinc-900 dark:text-white mb-6">
             Quick Start with Docker Compose
           </h2>
@@ -102,27 +114,36 @@ volumes:
                 <span id="copy-status" class="h-5 w-5">📋</span>
               </button>
             </div>
-            <div class="flex items-center bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/5 dark:to-purple-500/5 rounded-t-xl px-4 py-2 border-t border-x border-indigo-500/10 dark:border-purple-500/10">
-              <div class="h-4 w-4 text-indigo-500 dark:text-indigo-400 mr-2">💻</div>
+            <div
+              class="flex items-center bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/5 dark:to-purple-500/5 rounded-t-xl px-4 py-2 border-t border-x border-indigo-500/10 dark:border-purple-500/10"
+            >
+              <div class="h-4 w-4 text-indigo-500 dark:text-indigo-400 mr-2">
+                💻
+              </div>
               <span class="text-sm text-indigo-600 dark:text-indigo-400">
                 docker-compose.yml
               </span>
             </div>
-            <pre class="bg-zinc-900 rounded-b-xl p-4 overflow-x-auto border border-indigo-500/10 dark:border-purple-500/10">
-              <code class="text-sm text-zinc-100"></code>
+            <pre
+              class="bg-zinc-900 rounded-b-xl p-4 overflow-x-auto border border-indigo-500/10 dark:border-purple-500/10">
+              <code class="text-sm text-zinc-100" />
             </pre>
           </div>
 
           <div class="space-y-8">
             <div>
-              <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-4">
+              <h3
+                class="text-xl font-semibold text-zinc-900 dark:text-white mb-4"
+              >
                 Starting the Application
               </h3>
               <p class="text-zinc-600 dark:text-zinc-400 mb-4">
                 Run the following command in the directory containing your
                 docker-compose.yml:
               </p>
-              <div class="bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-xl p-4">
+              <div
+                class="bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-xl p-4"
+              >
                 <code class="text-sm text-zinc-100">
                   docker compose up -d
                 </code>
@@ -130,18 +151,27 @@ volumes:
             </div>
 
             <div>
-              <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-4">
+              <h3
+                class="text-xl font-semibold text-zinc-900 dark:text-white mb-4"
+              >
                 Environment Variables
               </h3>
-              <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 dark:from-amber-500/5 dark:to-orange-500/5 rounded-xl p-6 border border-amber-500/10 dark:border-orange-500/10 mb-6">
+              <div
+                class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 dark:from-amber-500/5 dark:to-orange-500/5 rounded-xl p-6 border border-amber-500/10 dark:border-orange-500/10 mb-6"
+              >
                 <p class="text-amber-600 dark:text-amber-400">
-                  <strong>Important:</strong> Make sure to change the JWT_SECRET and database passwords in production!
+                  <strong>Important:</strong> Make sure to change the JWT_SECRET
+                  and database passwords in production!
                 </p>
               </div>
-              <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+              <div
+                class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
+              >
                 <table class="w-full">
                   <thead>
-                    <tr class="bg-gradient-to-r from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900">
+                    <tr
+                      class="bg-gradient-to-r from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900"
+                    >
                       <th class="text-left py-3 px-4">Variable</th>
                       <th class="text-left py-3 px-4">Description</th>
                     </tr>
@@ -149,7 +179,9 @@ volumes:
                   <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
                     <tr class="bg-white dark:bg-zinc-900">
                       <td class="py-3 px-4">
-                        <code class="text-sm bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded">
+                        <code
+                          class="text-sm bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded"
+                        >
                           DATABASE_URL
                         </code>
                       </td>
@@ -159,7 +191,9 @@ volumes:
                     </tr>
                     <tr class="bg-white dark:bg-zinc-900">
                       <td class="py-3 px-4">
-                        <code class="text-sm bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded">
+                        <code
+                          class="text-sm bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded"
+                        >
                           JWT_SECRET
                         </code>
                       </td>
@@ -176,5 +210,4 @@ volumes:
       </div>
     </div>
   </div>
-</div>
 </Layout>

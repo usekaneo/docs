@@ -2,10 +2,10 @@
 import { GitFork, Github, Heart, Star } from "lucide-astro";
 
 const repositoryResponse = await fetch(
-	"https://api.github.com/repos/kaneo-app/app",
+  "https://api.github.com/repos/kaneo-app/app",
 );
 const contributorsResponse = await fetch(
-	"https://api.github.com/repos/kaneo-app/app/contributors",
+  "https://api.github.com/repos/kaneo-app/app/contributors",
 );
 
 const repository = await repositoryResponse.json();
