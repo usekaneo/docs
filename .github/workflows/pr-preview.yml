@@ -7,14 +7,12 @@ on:
       - synchronize
       - closed
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
   pull-requests: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages-pr-${{ github.event.pull_request.number }}"
   cancel-in-progress: true
@@ -22,6 +20,9 @@ concurrency:
 jobs:
   build-preview:
     runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages-pr-${{ github.event.pull_request.number }}
+          name: github-pages-pr-preview-${{ github.event.pull_request.number }}
           path: ./dist
 
       - name: Deploy to GitHub Pages
@@ -47,14 +48,14 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           preview: true
-          artifact_name: github-pages-pr-${{ github.event.pull_request.number }}
+          artifact_name: github-pages-pr-preview-${{ github.event.pull_request.number }}
           
       - name: Comment PR
         uses: actions/github-script@v7
         if: github.event.action != 'closed'
         with:
           script: |
-            const preview_url = `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split('/')[1]}/pr-preview/pr-${context.issue.number}/`;
+            const preview_url = `${{ steps.deployment.outputs.page_url }}`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
