@@ -1,4 +1,4 @@
-name: Deploy PR previews
+name: Deploy PR Preview
 on:
   pull_request:
     types:
@@ -7,47 +7,53 @@ on:
       - synchronize
       - closed
 
-concurrency: preview-${{ github.ref }}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
 
 jobs:
-  deploy-preview:
+  build-preview:
     runs-on: ubuntu-24.04
-    permissions:
-      pull-requests: write
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install Node.js
-        if: github.event.action != 'closed'
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Install pnpm
-        if: github.event.action != 'closed'
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
-      - name: Install dependencies
-        if: github.event.action != 'closed'
-        run: pnpm install
-
-      - name: Build
-        if: github.event.action != 'closed'
+      - name: Install, build, and upload
         uses: withastro/action@v3
         with:
           path: .
           node-version: 20
           package-manager: pnpm@latest
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          source-dir: ./dist/
-          umbrella-dir: pr-preview
-          action: ${{ github.event.action }}
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          preview: true
+          
+      - name: Comment PR
+        uses: actions/github-script@v7
+        if: github.event.action != 'closed'
+        with:
+          script: |
+            const preview_url = `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split('/')[1]}/pr-preview/pr-${context.issue.number}/`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `✨ PR Preview deployed! You can view it here: ${preview_url}`
+            });
