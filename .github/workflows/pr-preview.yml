@@ -1,4 +1,4 @@
-name: Deploy PR preview
+name: Deploy PR previews
 on:
   pull_request:
     types:
@@ -18,12 +18,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Install Node.js
         if: github.event.action != 'closed'
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
       - name: Install pnpm
         if: github.event.action != 'closed'
@@ -40,13 +42,12 @@ jobs:
         uses: withastro/action@v3
         with:
           path: .
-          node-version: 22
+          node-version: 20
           package-manager: pnpm@latest
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./dist/
-          preview-branch: refs/pull/${{ github.event.pull_request.number }}/merge
           umbrella-dir: pr-preview
           action: ${{ github.event.action }}
