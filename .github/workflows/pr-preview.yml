@@ -1,0 +1,52 @@
+name: Deploy PR preview
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        if: github.event.action != 'closed'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        if: github.event.action != 'closed'
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: pnpm install
+
+      - name: Build
+        if: github.event.action != 'closed'
+        uses: withastro/action@v3
+        with:
+          path: .
+          node-version: 22
+          package-manager: pnpm@latest
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./dist/
+          preview-branch: refs/pull/${{ github.event.pull_request.number }}/merge
+          umbrella-dir: pr-preview
+          action: ${{ github.event.action }}
