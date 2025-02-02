@@ -6,7 +6,7 @@ import "../styles/global.css";
 const title = "Kaneo";
 const subtitle = "Project management made simple for teams";
 const description =
-  "An open source project management platform focused on simplicity and efficiency. Self-host it, customize it, make it yours.";
+	"An open source project management platform focused on simplicity and efficiency. Self-host it, customize it, make it yours.";
 let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1);
 
@@ -38,6 +38,8 @@ const ogImage = new URL("/og-image.png", Astro.site).toString();
     <meta name="twitter:title" content={`${title} - ${subtitle}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <script is:inline defer data-domain="kaneo.app" src="https://plausible.kaneo.app/js/script.js"></script>
   </head>
   <body class="min-h-screen bg-white dark:bg-zinc-950">
     <Header />
