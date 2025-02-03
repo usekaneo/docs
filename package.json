@@ -11,7 +11,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/tailwind": "^5.1.5",
+		"@astrojs/tailwind": "^6.0.0",
 		"astro": "^5.2.3",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
