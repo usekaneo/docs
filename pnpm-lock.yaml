@@ -24,8 +24,8 @@ importers:
         specifier: ^0.473.0
         version: 0.473.0(astro@5.2.5(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.1)(typescript@5.7.2)(yaml@2.7.0))
       tailwindcss:
-        specifier: ^4.0.3
-        version: 4.0.3
+        specifier: ^4.0.6
+        version: 4.0.6
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -1493,6 +1493,9 @@ packages:
 
   tailwindcss@4.0.3:
     resolution: {integrity: sha512-ImmZF0Lon5RrQpsEAKGxRvHwCvMgSC4XVlFRqmbzTEDb/3wvin9zfEZrMwgsa3yqBbPqahYcVI6lulM2S7IZAA==}
+
+  tailwindcss@4.0.6:
+    resolution: {integrity: sha512-mysewHYJKaXgNOW6pp5xon/emCsfAMnO8WMaGKZZ35fomnR/T5gYnRg2/yRTTrtXiEl1tiVkeRt0eMO6HxEZqw==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -3440,6 +3443,8 @@ snapshots:
   strip-bom@3.0.0: {}
 
   tailwindcss@4.0.3: {}
+
+  tailwindcss@4.0.6: {}
 
   tapable@2.2.1: {}
 
