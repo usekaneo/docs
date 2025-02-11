@@ -26,7 +26,7 @@ const { pathname } = Astro.url;
                                         href={item.href}
                                         class:list={[
                                             "block text-sm py-1.5 px-4 rounded-md transition-colors",
-                                            pathname === item.href
+                                            pathname.includes(item.href)
                                                 ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400"
                                                 : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800",
                                         ]}
