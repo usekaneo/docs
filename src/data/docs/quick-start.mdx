@@ -1,0 +1,56 @@
+---
+title: Quick Start
+---
+
+# Quick Start Guide
+
+Get Kaneo up and running on your own infrastructure in minutes.
+
+## Installation
+
+The easiest way to get started with Kaneo is using Docker Compose. Create a `compose.yml` file with the following content:
+
+
+```yaml
+services:
+  backend:
+    image: ghcr.io/kaneo-app/api:latest
+    environment:
+      JWT_ACCESS: "change_me"
+    ports:
+      - 1337:1337
+    restart: unless-stopped
+    volumes:
+      - .:/app
+
+  frontend:
+    image: ghcr.io/kaneo-app/web:latest
+    environment:
+      KANEO_API_URL: "https://demo-api.kaneo.app"
+    ports:
+      - 5173:5173
+    depends_on:
+      - backend
+    restart: unless-stopped
+```
+
+## Starting the Application
+
+Run the following command in the directory containing your `compose.yml`:
+
+```bash
+docker compose up -d
+```
+
+This will start both the Kaneo frontend and backend. The application will be available at `http://localhost:5173`.
+
+## Environment Variables
+
+Here are the key environment variables you need to configure:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `KANEO_API_URL` | The url of the API | Yes |
+| `JWT_SECRET` | Secret key for JWT tokens | Yes |
+
+> **Important:** Make sure to change the JWT_SECRET production!

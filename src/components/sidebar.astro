@@ -1,0 +1,44 @@
+---
+const { menuItems } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<aside
+    class="w-72 hidden lg:block border-r border-zinc-200 dark:border-zinc-800 p-8"
+>
+    <nav class="space-y-8">
+        {
+            menuItems.map(
+                (section: {
+                    section: string;
+                    icon: any;
+                    items: { href: string; title: string }[];
+                }) => (
+                    <div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-2">
+                            <section.icon className="h-4 w-4" />
+                            {section.section}
+                        </div>
+                        <ul class="space-y-2">
+                            {section.items.map((item) => (
+                                <li>
+                                    <a
+                                        href={item.href}
+                                        class:list={[
+                                            "block text-sm py-1.5 px-4 rounded-md transition-colors",
+                                            pathname === item.href
+                                                ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400"
+                                                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800",
+                                        ]}
+                                    >
+                                        {item.title}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ),
+            )
+        }
+    </nav>
+</aside>
