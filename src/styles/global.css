@@ -6,6 +6,8 @@ pre::-webkit-scrollbar {
 	width: 8px;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 pre::-webkit-scrollbar-track {
 	background: rgb(39 39 42);
 	border-radius: 9999px;
@@ -39,6 +41,12 @@ pre::-webkit-scrollbar-thumb:hover {
 	.site-title {
 		color: white;
 	}
+	starlight-menu-button {
+		button {
+			background-color: transparent;
+			color: var(--sl-color-white);
+		}
+	}
 }
 
 :root[data-theme="light"] {
@@ -56,6 +64,12 @@ pre::-webkit-scrollbar-thumb:hover {
 	--sl-color-black: #ffffff;
 	.site-title {
 		color: #18181b;
+	}
+	starlight-menu-button {
+		button {
+			background-color: transparent;
+			box-shadow: none;
+		}
 	}
 }
 

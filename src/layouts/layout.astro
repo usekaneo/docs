@@ -44,6 +44,17 @@ const ogImage = new URL("/og-image.png", Astro.site).toString();
       defer
       data-domain="kaneo.app"
       src="https://plausible.kaneo.app/js/script.js"></script>
+
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+
+      if (
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body class="min-h-screen bg-white dark:bg-zinc-950">
     <Header />

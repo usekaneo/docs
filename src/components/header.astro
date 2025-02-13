@@ -1,5 +1,6 @@
 ---
 import Logo from "@/components/logo.astro";
+import ThemeToggle from "@/components/theme-toggle.astro";
 import { Github, Menu, X } from "lucide-astro";
 ---
 
@@ -29,7 +30,7 @@ import { Github, Menu, X } from "lucide-astro";
         >
           Docs
         </a>
-        <!-- <ThemeToggle /> -->
+        <ThemeToggle />
         <button
           onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
@@ -45,7 +46,7 @@ import { Github, Menu, X } from "lucide-astro";
       </div>
 
       <div class="flex items-center gap-4 md:hidden">
-        <!-- <ThemeToggle /> -->
+        <ThemeToggle />
         <button
           id="menuButton"
           aria-label="Mobile navigation button"
