@@ -1,14 +1,13 @@
 ---
 import Logo from "@/components/logo.astro";
 import { Github, Menu, X } from "lucide-astro";
-import ThemeToggle from "./theme-toggle.astro";
 ---
 
 <header
   class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800"
 >
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+  <nav class="w-full flex justify-center px-4 sm:px-6 lg:px-8">
+    <div class="flex max-w-7xl w-full items-center justify-between h-16">
       <Logo />
 
       <div class="hidden md:flex md:items-center md:gap-x-8">

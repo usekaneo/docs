@@ -1,0 +1,56 @@
+---
+title: Quick Start
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+
+Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open-source project management tool designed to help teams collaborate efficiently. With just a few commands, you can deploy both the frontend and backend using Docker Compose.
+
+
+## Installation
+
+<Steps>
+
+1. Import the component into your MDX file:
+
+   ```yaml title="compose.yaml"
+    services:
+      backend:
+        image: ghcr.io/kaneo-app/api:latest
+        environment:
+          JWT_ACCESS: "change_me"
+        ports:
+          - 1337:1337
+        restart: unless-stopped
+        volumes:
+          - .:/app
+
+      frontend:
+        image: ghcr.io/kaneo-app/web:latest
+        environment:
+          KANEO_API_URL: "https://demo-api.kaneo.app"
+        ports:
+          - 5173:5173
+        depends_on:
+          - backend
+        restart: unless-stopped
+   ```
+
+2. Run the following command in the directory containing your `compose.yml`:
+    ```bash
+    docker compose up -d
+    ```
+
+3. This will start both the Kaneo frontend and backend. The application will be available at `http://localhost:5173`.
+
+3. Here are the key environment variables you need to configure:
+
+    | Variable | Description | Required |
+    |----------|-------------|----------|
+    | `KANEO_API_URL` | The url of the API | Yes |
+    | `JWT_SECRET` | Secret key for JWT tokens | Yes |
+
+4. You’re done! 🎉
+
+</Steps>
