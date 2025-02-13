@@ -26,8 +26,8 @@ pre::-webkit-scrollbar-thumb:hover {
 
 :root {
 	--sl-color-accent-low: #1c1f44;
-	--sl-color-accent: #5352db;
-	--sl-color-accent-high: #bdc5f5;
+	--sl-color-accent: #7c86ff;
+	--sl-color-accent-high: #7c86ff;
 	--sl-color-white: #ffffff;
 	--sl-color-gray-1: #ededef;
 	--sl-color-gray-2: #c2c2c3;
@@ -43,8 +43,8 @@ pre::-webkit-scrollbar-thumb:hover {
 
 :root[data-theme="light"] {
 	--sl-color-accent-low: #ced5f9;
-	--sl-color-accent: #5554de;
-	--sl-color-accent-high: #272a65;
+	--sl-color-accent: #7c86ff;
+	--sl-color-accent-high: #7c86ff;
 	--sl-color-white: #181819;
 	--sl-color-gray-1: #262629;
 	--sl-color-gray-2: #38383a;
