@@ -13,7 +13,7 @@ export default defineConfig({
 		sitemap(),
 		starlight({
 			editLink: {
-				baseUrl: "https://github.com/kaneo-app/landing-page",
+				baseUrl: "https://github.com/kaneo-app/landing-page/tree/main",
 			},
 			expressiveCode: {
 				styleOverrides: {
