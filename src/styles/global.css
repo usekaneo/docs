@@ -8,6 +8,12 @@ pre::-webkit-scrollbar {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+.site-title {
+	img {
+		padding: 6px;
+	}
+}
+
 pre::-webkit-scrollbar-track {
 	background: rgb(39 39 42);
 	border-radius: 9999px;

@@ -1,6 +1,1 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 6H7C6.44772 6 6 6.44772 6 7V12C6 12.5523 6.44772 13 7 13H12C12.5523 13 13 12.5523 13 12V7C13 6.44772 12.5523 6 12 6Z" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M23 6H18C17.4477 6 17 6.44772 17 7V12C17 12.5523 17.4477 13 18 13H23C23.5523 13 24 12.5523 24 12V7C24 6.44772 23.5523 6 23 6Z" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M12 17H7C6.44772 17 6 17.4477 6 18V23C6 23.5523 6.44772 24 7 24H12C12.5523 24 13 23.5523 13 23V18C13 17.4477 12.5523 17 12 17Z" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M23 17H18C17.4477 17 17 17.4477 17 18V23C17 23.5523 17.4477 24 18 24H23C23.5523 24 24 23.5523 24 23V18C24 17.4477 23.5523 17 23 17Z" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" stroke-width="2" width="24" height="24" stroke="#7C86FF" stroke-linecap="round" stroke-linejoin="round" fill="none" viewBox="0 0 24 24" class="lucide lucide-layout-grid w-5 h-5 text-indigo-600 dark:text-indigo-400">  <rect width="7" height="7" x="3" y="3" rx="1"></rect> <rect width="7" height="7" x="14" y="3" rx="1"></rect> <rect width="7" height="7" x="14" y="14" rx="1"></rect> <rect width="7" height="7" x="3" y="14" rx="1"></rect>  </svg>
