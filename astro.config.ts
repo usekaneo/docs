@@ -72,6 +72,7 @@ export default defineConfig({
 			tagline: "Project management made easy",
 			components: {
 				TableOfContents: "./src/components/starlight/toc.astro",
+				Head: "./src/components/head.astro",
 			},
 			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
 			sidebar: [
