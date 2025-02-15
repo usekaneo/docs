@@ -24,14 +24,14 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
           - 1337:1337
         restart: unless-stopped
         volumes:
-          - .:/app
+          - ./data:/data
 
       frontend:
         image: ghcr.io/kaneo-app/web:latest
         environment:
-          KANEO_API_URL: "https://demo-api.kaneo.app"
+          KANEO_API_URL: "http://localhost:1337"
         ports:
-          - 5173:5173
+          - 5173:80
         depends_on:
           - backend
         restart: unless-stopped
