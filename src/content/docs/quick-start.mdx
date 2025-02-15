@@ -24,7 +24,7 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
           - 1337:1337
         restart: unless-stopped
         volumes:
-          - ./data:/data
+          - sqlite_data:/app/apps/api/data
 
       frontend:
         image: ghcr.io/kaneo-app/web:latest
@@ -35,6 +35,9 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
         depends_on:
           - backend
         restart: unless-stopped
+
+    volumes:
+      sqlite_data:
    ```
 
 2. Run the following command in the directory containing your `compose.yml`:
