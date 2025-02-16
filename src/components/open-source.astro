@@ -1,5 +1,11 @@
 ---
 import { GitFork, Github, Heart, Star } from "lucide-astro";
+
+const apiUrl = import.meta.env.PROD
+  ? "https://kaneo.app/api/github-stats"
+  : "http://localhost:4321/api/github-stats";
+const response = await fetch(apiUrl);
+const stats = await response.json();
 ---
 
 <div class="py-24 bg-zinc-50 dark:bg-zinc-900">
@@ -63,19 +69,19 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <Star class="w-4 h-4" />
-              <span>5 stars</span>
+              <span>{stats.stars} stars</span>
             </div>
             <div
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <GitFork class="w-4 h-4" />
-              <span>1 forks</span>
+              <span>{stats.forks} forks</span>
             </div>
             <div
               class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
             >
               <Heart class="w-4 h-4" />
-              <span>6 contributors</span>
+              <span>{stats.contributors} contributors</span>
             </div>
           </div>
         </div>
@@ -97,24 +103,21 @@ import { GitFork, Github, Heart, Star } from "lucide-astro";
             entry.isIntersecting &&
             !entry.target.hasAttribute("data-animated")
           ) {
-            // Trigger the animation when the element is in view and not yet animated
             gsap.fromTo(
               entry.target,
               { opacity: 0, y: 20 },
               { opacity: 1, y: 0, duration: 0.5, delay: index * 0.1 },
             );
 
-            // Mark the element as animated by setting a data attribute
             entry.target.setAttribute("data-animated", "true");
 
-            // Stop observing the element after it has been animated
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the element is in view
-        rootMargin: "0px 0px 100px 0px", // Add some margin to trigger earlier
+        threshold: 0.5,
+        rootMargin: "0px 0px 100px 0px",
       },
     );
 

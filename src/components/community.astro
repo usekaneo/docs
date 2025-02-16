@@ -82,7 +82,6 @@ import { Github, MessageSquare, Twitter } from "lucide-astro";
 </div>
 
 <script>
-  // src/assets/communityAnimations.js
   import { gsap } from "gsap";
 
   export const applyCommunityAnimations = () => {
@@ -95,7 +94,6 @@ import { Github, MessageSquare, Twitter } from "lucide-astro";
             entry.isIntersecting &&
             !entry.target.hasAttribute("data-animated")
           ) {
-            // Trigger the animation when the element is in view and not yet animated
             gsap.fromTo(
               entry.target,
               { opacity: 0, y: 20 },
@@ -107,17 +105,15 @@ import { Github, MessageSquare, Twitter } from "lucide-astro";
               },
             );
 
-            // Mark the element as animated by setting a data attribute
             entry.target.setAttribute("data-animated", "true");
 
-            // Stop observing the element after it has been animated
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the element is in view
-        rootMargin: "0px 0px 100px 0px", // Add some margin to trigger earlier
+        threshold: 0.5,
+        rootMargin: "0px 0px 100px 0px",
       },
     );
 
