@@ -9,7 +9,12 @@ const description =
 let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1);
 
-const ogImage = new URL("/og-image.png", Astro.site).toString();
+const path =
+    Astro.url.pathname === "/"
+        ? "home"
+        : Astro.url.pathname.split("/").filter(Boolean).pop();
+
+const ogImage = new URL(`/og/${path}`, Astro.site).toString();
 ---
 
 <Default {...Astro.props}><slot /></Default>
@@ -21,14 +26,22 @@ const ogImage = new URL("/og-image.png", Astro.site).toString();
 
 <meta name="description" content={description} />
 
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={`${title} - ${subtitle}`} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
 
+<!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content="kaneo.app" />
+<meta property="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={`${title} - ${subtitle}`} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
+<!-- Icons -->
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
