@@ -7,14 +7,14 @@ export function loadFonts(): {
 	weight: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 	style: "normal" | "italic";
 }[] {
-	const inter = readFileSync(
-		join(process.cwd(), "public", "fonts", "Inter-Regular.ttf"),
+	const firaSansRegular = readFileSync(
+		join(process.cwd(), "public", "fonts", "FiraSans-Regular.ttf"),
 	);
 
 	return [
 		{
-			name: "Inter",
-			data: inter,
+			name: "Fira Sans",
+			data: firaSansRegular,
 			weight: 400,
 			style: "normal",
 		},
