@@ -1,11 +1,78 @@
 ---
+import fs from "node:fs/promises";
+import path from "node:path";
 import { GitFork, Github, Heart, Star } from "lucide-astro";
 
-const apiUrl = import.meta.env.PROD
-  ? "https://kaneo.app/api/github-stats"
-  : "http://localhost:4321/api/github-stats";
-const response = await fetch(apiUrl);
-const stats = await response.json();
+interface GitHubStats {
+  stars: number;
+  forks: number;
+  contributors: number;
+  lastUpdated?: number;
+}
+
+const CACHE_FILE = path.join(process.cwd(), ".github-stats-cache.json");
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+async function readCache(): Promise<GitHubStats | null> {
+  try {
+    const data = await fs.readFile(CACHE_FILE, "utf-8");
+    const cache = JSON.parse(data);
+
+    if (Date.now() - cache.lastUpdated < CACHE_DURATION) {
+      return cache;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function writeCache(stats: GitHubStats) {
+  try {
+    await fs.writeFile(
+      CACHE_FILE,
+      JSON.stringify({ ...stats, lastUpdated: Date.now() }),
+    );
+  } catch (error) {
+    console.error("Failed to write cache:", error);
+  }
+}
+
+async function fetchGitHubStats(): Promise<GitHubStats> {
+  try {
+    const cached = await readCache();
+    if (cached) {
+      return cached;
+    }
+
+    const [repoData, contributors] = await Promise.all([
+      fetch("https://api.github.com/repos/kaneo-app/app"),
+      fetch("https://api.github.com/repos/kaneo-app/app/contributors"),
+    ]);
+
+    const repo = await repoData.json();
+    const contributorsList = await contributors.json();
+
+    const stats = {
+      stars: repo.stargazers_count,
+      forks: repo.forks_count,
+      contributors: contributorsList.length,
+    };
+
+    await writeCache(stats);
+
+    return stats;
+  } catch (error) {
+    console.error("Failed to fetch GitHub stats:", error);
+    return {
+      stars: 0,
+      forks: 0,
+      contributors: 0,
+    };
+  }
+}
+
+const stats = await fetchGitHubStats();
 ---
 
 <div class="py-24 bg-zinc-50 dark:bg-zinc-900">
