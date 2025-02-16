@@ -19,7 +19,9 @@ export async function getStaticPaths() {
 
 export const GET: APIRoute = async ({ params }) => {
 	const { route } = params;
-	const title = route?.replace(/-/g, " ") || "Documentation";
+	const title =
+		route?.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()) ||
+		"Documentation";
 
 	const svg = await satori(createOGImage({ title }), {
 		width: 1200,
