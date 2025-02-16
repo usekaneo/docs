@@ -10,7 +10,7 @@ const description =
 let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1);
 
-const ogImage = new URL("/og-image.png", Astro.site).toString();
+const ogImage = new URL("https://raw.githubusercontent.com/kaneo-app/app/main/assets/cover-image.png").toString();
 ---
 
 <!doctype html>
