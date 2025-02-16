@@ -14,33 +14,32 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
 <Steps>
 
 1. Create a `compose.yml` file with the following content:
+    ```yaml title="compose.yaml"
+    services:
+      backend:
+        image: ghcr.io/kaneo-app/api:latest
+        environment:
+          JWT_ACCESS: "change_me"
+          DB_PATH: "/app/apps/api/data/kaneo.db"
+        ports:
+          - 1337:1337
+        restart: unless-stopped
+        volumes:
+          - sqlite_data:/app/apps/api/data
 
-   ```yaml title="compose.yaml"
-   services:
-    backend:
-      image: ghcr.io/kaneo-app/api:latest
-      environment:
-        JWT_ACCESS: "change_me"
-        DB_PATH: "/app/apps/api/data/kaneo.db"
-      ports:
-        - 1337:1337
-      restart: unless-stopped
-      volumes:
-        - sqlite_data:/app/apps/api/data
-
-    frontend:
-      image: ghcr.io/kaneo-app/web:latest
-      environment:
-        KANEO_API_URL: "http://localhost:1337"
-      ports:
-        - 5173:80
-      depends_on:
-        - backend
-      restart: unless-stopped
-      
-  volumes:
-    sqlite_data:
-   ```
+      frontend:
+        image: ghcr.io/kaneo-app/web:latest
+        environment:
+          KANEO_API_URL: "http://localhost:1337"
+        ports:
+          - 5173:80
+        depends_on:
+          - backend
+        restart: unless-stopped
+        
+    volumes:
+      sqlite_data:
+    ```
 
 2. Run the following command in the directory containing your `compose.yml`:
     ```bash
