@@ -1,6 +1,5 @@
 {
-	"name": "landing-page",
-	"author": "Andrej Acevski <hello@aacevski.com>",
+	"name": "docs",
 	"type": "module",
 	"version": "0.0.1",
 	"license": "MIT",
