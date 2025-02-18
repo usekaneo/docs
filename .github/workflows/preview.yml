@@ -28,6 +28,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+          name: github-pages-preview-${{ github.event.pull_request.number }}
 
   deploy:
     needs: build
