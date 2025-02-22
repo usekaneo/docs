@@ -14,18 +14,22 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
 <Steps>
 
 1. Create a `compose.yml` file with the following content:
-    ```yaml title="compose.yaml"
+    ```yaml title="compose.yml"
     services:
       backend:
         image: ghcr.io/kaneo-app/api:latest
         environment:
           JWT_ACCESS: "change_me"
           DB_PATH: "/app/apps/api/data/kaneo.db"
+          RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
         ports:
           - 1337:1337
         restart: unless-stopped
         volumes:
           - sqlite_data:/app/apps/api/data
+        depends_on:
+          rabbitmq:
+            condition: service_healthy
 
       frontend:
         image: ghcr.io/kaneo-app/web:latest
@@ -36,9 +40,27 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
         depends_on:
           - backend
         restart: unless-stopped
-        
+
+      rabbitmq:
+        image: rabbitmq:3-management
+        ports:
+          - "5672:5672"
+          - "15672:15672"
+        environment:
+          - RABBITMQ_DEFAULT_USER=guest
+          - RABBITMQ_DEFAULT_PASS=guest
+        volumes:
+          - rabbitmq_data:/var/lib/rabbitmq
+        healthcheck:
+          test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+          interval: 10s
+          timeout: 5s
+          retries: 5
+        restart: unless-stopped
+
     volumes:
       sqlite_data:
+      rabbitmq_data:
     ```
 
 2. Run the following command in the directory containing your `compose.yml`:
@@ -53,7 +75,9 @@ Get Kaneo up and running on your own infrastructure in minutes. Kaneo is an open
     | Variable | Description | Required |
     |----------|-------------|----------|
     | `KANEO_API_URL` | The url of the API | Yes |
-    | `JWT_SECRET` | Secret key for JWT tokens | Yes |
+    | `JWT_ACCESS` | Secret key for JWT tokens | Yes |
+    | `RABBITMQ_URL` | The url of the RabbitMQ server | Yes |
+    | `DB_PATH` | The path to the database file | Yes |
 
 4. You’re done! 🎉
 
