@@ -19,7 +19,7 @@ importers:
         version: 0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))
       '@astrojs/starlight-tailwind':
         specifier: ^3.0.0
-        version: 3.0.0(@astrojs/starlight@0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.6))(tailwindcss@4.0.6)
+        version: 3.0.0(@astrojs/starlight@0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.9))(tailwindcss@4.0.9)
       '@tailwindcss/postcss':
         specifier: ^4.0.6
         version: 4.0.6
@@ -45,15 +45,15 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
       tailwindcss:
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.9
+        version: 4.0.9
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
       '@tailwindcss/typography':
         specifier: ^0.5.16
-        version: 0.5.16(tailwindcss@4.0.6)
+        version: 0.5.16(tailwindcss@4.0.9)
 
 packages:
 
@@ -2398,11 +2398,11 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.1
 
-  '@astrojs/starlight-tailwind@3.0.0(@astrojs/starlight@0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.6))(tailwindcss@4.0.6)':
+  '@astrojs/starlight-tailwind@3.0.0(@astrojs/starlight@0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.9))(tailwindcss@4.0.9)':
     dependencies:
       '@astrojs/starlight': 0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))
-      '@astrojs/tailwind': 5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.6)
-      tailwindcss: 4.0.6
+      '@astrojs/tailwind': 5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.9)
+      tailwindcss: 4.0.9
 
   '@astrojs/starlight@0.32.2(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))':
     dependencies:
@@ -2435,13 +2435,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.6)':
+  '@astrojs/tailwind@5.1.5(astro@5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0))(tailwindcss@4.0.9)':
     dependencies:
       astro: 5.4.2(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.7.2)(yaml@2.7.0)
       autoprefixer: 10.4.20(postcss@8.5.3)
       postcss: 8.5.3
       postcss-load-config: 4.0.2(postcss@8.5.3)
-      tailwindcss: 4.0.6
+      tailwindcss: 4.0.9
     transitivePeerDependencies:
       - ts-node
 
@@ -2964,13 +2964,13 @@ snapshots:
       postcss: 8.5.2
       tailwindcss: 4.0.6
 
-  '@tailwindcss/typography@0.5.16(tailwindcss@4.0.6)':
+  '@tailwindcss/typography@0.5.16(tailwindcss@4.0.9)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.0.6
+      tailwindcss: 4.0.9
 
   '@tailwindcss/vite@4.0.9(vite@6.2.0(jiti@2.4.2)(lightningcss@1.29.1)(yaml@2.7.0))':
     dependencies:
