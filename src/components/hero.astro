@@ -1,17 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
 ---
 
 <div class="relative overflow-hidden">
-    <div
-        aria-hidden="true"
-        class="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block"
-    >
+    <div aria-hidden class="absolute inset-0 isolate opacity-65 contain-strict">
         <div
             class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
         >
             <div
-                class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             >
             </div>
         </div>
@@ -19,17 +17,17 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
             class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
         >
             <div
-                class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
             >
             </div>
         </div>
     </div>
     <div
-        class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-24"
+        class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-24 space-y-12 sm:space-y-16"
     >
         <div id="headline">
             <a
-                href="https://github.com/kaneo-app/app"
+                href="#features"
                 class="hover:bg-zinc-100 dark:hover:bg-zinc-800 bg-zinc-50 dark:bg-zinc-900 group mx-auto flex w-fit items-center gap-4 rounded-full border border-zinc-200 dark:border-zinc-800 p-1 pl-4 shadow-md shadow-zinc-950/5 transition-all duration-300 hover:scale-[1.02]"
             >
                 <span class="text-zinc-900 dark:text-zinc-100 text-sm"
@@ -94,12 +92,9 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
             </div>
         </div>
 
-        <div
-            class="relative mt-16 overflow-hidden px-2 sm:mt-16"
-            id="app-preview"
-        >
+        <div class="relative overflow-hidden px-2" id="app-preview">
             <div
-                aria-hidden="true"
+                aria-hidden
                 class="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-35% to-white dark:to-zinc-950 pointer-events-none"
             >
             </div>
@@ -109,10 +104,19 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
                 <div
                     class="aspect-[16/10] relative rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900"
                 >
-                    <img
-                        src="https://raw.githubusercontent.com/kaneo-app/.github/refs/heads/main/profile/assets/board.png"
-                        alt="Kaneo application interface"
-                        class="object-fit rounded-lg transition-transform duration-700 hover:scale-[1.02]"
+                    <Image
+                        src="https://raw.githubusercontent.com/kaneo-app/.github/refs/heads/main/profile/assets/board-light.png"
+                        alt="Kaneo board interface - Light mode"
+                        width={1920}
+                        height={1080}
+                        class="object-cover rounded-lg transition-transform duration-700 hover:scale-[1.02] block dark:hidden"
+                    />
+                    <Image
+                        src="https://raw.githubusercontent.com/kaneo-app/.github/refs/heads/main/profile/assets/board-dark.png"
+                        alt="Kaneo board interface - Dark mode"
+                        width={1920}
+                        height={1080}
+                        class="object-cover rounded-lg transition-transform duration-700 hover:scale-[1.02] hidden dark:block"
                     />
                 </div>
             </div>
@@ -151,10 +155,10 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
         },
     );
 
-    const img = document.querySelector(".relative.overflow-hidden img");
-    if (img) {
+    const images = document.querySelectorAll(".relative.overflow-hidden img");
+    if (images.length) {
         gsap.fromTo(
-            img,
+            images,
             {
                 opacity: 0,
                 scale: 0.95,
