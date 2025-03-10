@@ -12,32 +12,15 @@ import { Github, Menu, X } from "lucide-astro";
       <Logo />
 
       <div class="hidden md:flex md:items-center md:gap-x-8">
-        <a
-          href="#features"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Features
-        </a>
-        <a
-          href="#community"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Community
-        </a>
-        <a
-          href="/quick-start"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Docs
-        </a>
         <ThemeToggle />
-        <button
-          onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+        <a
+          href="https://github.com/kaneo-app/app"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          <Github class="w-4 h-4 mr-2" />
-          Star on GitHub
-        </button>
+          GitHub
+        </a>
         <a
           href="/quick-start"
           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400"
@@ -63,30 +46,13 @@ import { Github, Menu, X } from "lucide-astro";
     <div id="mobileMenu" class="hidden md:hidden py-4">
       <div class="flex flex-col gap-4">
         <a
-          href="#features"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Features
-        </a>
-        <a
-          href="#community"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Community
-        </a>
-        <a
-          href="/quick-start"
-          class="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          Docs
-        </a>
-        <button
-          onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
+          href="https://github.com/kaneo-app/app"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          <Github class="w-4 h-4 mr-2" />
-          Star on GitHub
-        </button>
+          GitHub
+        </a>
         <a
           href="/quick-start"
           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-9 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 w-full"

@@ -1,63 +1,50 @@
 ---
-import { Calendar, Cloud, Kanban, Lock, Users, Zap } from "lucide-astro";
+import { Cloud, Kanban, Lock } from "lucide-astro";
 
 const features = [
   {
     name: "Visual Task Management",
-    description: "Organize tasks with our intuitive kanban board interface.",
+    description:
+      "Organize tasks with our intuitive kanban board interface. Drag and drop tasks, set priorities, and track progress.",
     icon: Kanban,
   },
   {
-    name: "Team Collaboration",
+    name: "Self-hosted & Secure",
     description:
-      "Work together seamlessly with real-time updates and comments.",
-    icon: Users,
-  },
-  {
-    name: "Project Timeline",
-    description: "Track project progress with interactive timeline views.",
-    icon: Calendar,
-  },
-  {
-    name: "Automation",
-    description: "Automate repetitive tasks and boost productivity.",
-    icon: Zap,
-  },
-  {
-    name: "Cloud or Self-hosted",
-    description:
-      "Choose between our cloud service or self-host on your infrastructure.",
+      "Deploy on your own infrastructure with complete control over your data and customization options.",
     icon: Cloud,
   },
   {
     name: "Data Privacy",
-    description: "Keep your data secure with end-to-end encryption.",
+    description:
+      "Built with security in mind. Your data stays private and protected with robust security measures.",
     icon: Lock,
   },
 ];
 ---
 
-<div class="py-24 bg-white dark:bg-zinc-950">
+<div class="py-16 bg-white dark:bg-zinc-950" id="features">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
+    <div class="text-center max-w-2xl mx-auto">
       <h2
         class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
       >
-        Everything you need to manage projects
+        Simple yet powerful
       </h2>
       <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-        Powerful features to help your team succeed
+        Focus on what matters with our essential features
       </p>
     </div>
 
-    <div class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         features.map((feature) => (
           <div class="feature-item relative">
-            <div class="absolute inset-0 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 transform -rotate-6 scale-95 transition-transform group-hover:rotate-0 group-hover:scale-100" />
-            <div class="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8">
-              <feature.icon class="h-8 w-8 text-indigo-600 dark:text-indigo-400 mb-4" />
-              <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">
+            <div class="relative rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors duration-200">
+              <div class="inline-flex p-3 rounded-lg bg-indigo-50 dark:bg-indigo-500/10">
+                <feature.icon class="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <h3 class="mt-6 text-lg font-semibold text-zinc-900 dark:text-white">
                 {feature.name}
               </h3>
               <p class="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -74,7 +61,7 @@ const features = [
 <script>
   import gsap from "gsap";
 
-  const applyFeaturesAnimations = () => {
+  function applyFeaturesAnimations() {
     const featureElements = document.querySelectorAll(".feature-item");
 
     const observer = new IntersectionObserver(
@@ -87,7 +74,13 @@ const features = [
             gsap.fromTo(
               entry.target,
               { opacity: 0, y: 20 },
-              { opacity: 1, y: 0, duration: 0.5, delay: index * 0.1 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "power2.out",
+              },
             );
 
             entry.target.setAttribute("data-animated", "true");
@@ -106,7 +99,7 @@ const features = [
       element.removeAttribute("data-animated");
       observer.observe(element);
     });
-  };
+  }
 
   window.addEventListener("load", applyFeaturesAnimations);
 </script>

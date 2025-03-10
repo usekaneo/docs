@@ -1,12 +1,62 @@
 ---
-import { ExternalLink, Github, Terminal } from "lucide-astro";
+import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
 ---
 
 <div class="relative overflow-hidden">
     <div
-        class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32"
+        aria-hidden="true"
+        class="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block"
+    >
+        <div
+            class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+        >
+            <div
+                class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            >
+            </div>
+        </div>
+        <div
+            class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+        >
+            <div
+                class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-500 to-indigo-200 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            >
+            </div>
+        </div>
+    </div>
+    <div
+        class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-24"
     >
         <div id="headline">
+            <a
+                href="https://github.com/kaneo-app/app"
+                class="hover:bg-zinc-100 dark:hover:bg-zinc-800 bg-zinc-50 dark:bg-zinc-900 group mx-auto flex w-fit items-center gap-4 rounded-full border border-zinc-200 dark:border-zinc-800 p-1 pl-4 shadow-md shadow-zinc-950/5 transition-all duration-300 hover:scale-[1.02]"
+            >
+                <span class="text-zinc-900 dark:text-zinc-100 text-sm"
+                    >Introducing Kaneo</span
+                >
+                <span
+                    class="block h-4 w-0.5 border-l border-zinc-300 dark:border-zinc-700"
+                ></span>
+                <div
+                    class="bg-white dark:bg-zinc-800 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-700 size-6 overflow-hidden rounded-full duration-500"
+                >
+                    <div
+                        class="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0"
+                    >
+                        <span class="flex size-6">
+                            <ArrowRight
+                                class="m-auto size-3 text-zinc-600 dark:text-zinc-400"
+                            />
+                        </span>
+                        <span class="flex size-6">
+                            <ArrowRight
+                                class="m-auto size-3 text-zinc-600 dark:text-zinc-400"
+                            />
+                        </span>
+                    </div>
+                </div>
+            </a>
             <h1
                 class="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-zinc-900 dark:text-white sm:text-7xl"
             >
@@ -25,84 +75,45 @@ import { ExternalLink, Github, Terminal } from "lucide-astro";
                 and efficiency. Self-host it, customize it, make it yours.
             </p>
             <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <button
-                    onclick="window.open('https://github.com/kaneo-app/app', '_blank')"
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 h-12 px-6"
-                >
-                    <Github className="w-4 h-4 mr-2" />
-                    Star on GitHub
-                </button>
-                <button
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-indigo-600 text-white hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 h-12 px-6"
-                    onclick="window.open('https://demo.kaneo.app', '_blank')"
+                <a
+                    href="https://demo.kaneo.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-lg shadow-indigo-500/20 py-2 bg-indigo-600 text-white hover:bg-indigo-500 hover:scale-[1.02] dark:bg-indigo-500 dark:hover:bg-indigo-400 h-12 px-8"
                 >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Try Demo
-                </button>
-                <button
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow py-2 bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 h-12 px-6"
-                    onclick="window.location.href='/quick-start'"
+                </a>
+                <a
+                    href="/quick-start"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-lg py-2 bg-white text-zinc-900 hover:bg-zinc-50 hover:scale-[1.02] dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 h-12 px-8 border border-zinc-200 dark:border-zinc-700"
                 >
                     <Terminal className="mr-2 h-4 w-4" />
                     Documentation
-                </button>
+                </a>
             </div>
         </div>
 
-        <div id="open-source-section" class="mt-16">
-            <div class="relative">
-                <div
-                    class="absolute inset-0 flex items-center"
-                    aria-hidden="true"
-                >
-                    <div
-                        class="w-full border-t border-zinc-200 dark:border-zinc-800"
-                    >
-                    </div>
-                </div>
-                <div
-                    class="relative flex justify-center text-sm font-medium leading-6"
-                >
-                    <span
-                        class="bg-white dark:bg-zinc-950 px-6 text-zinc-600 dark:text-zinc-400"
-                    >
-                        Open Source and Self-Hosted
-                    </span>
-                </div>
-            </div>
-
+        <div
+            class="relative mt-16 overflow-hidden px-2 sm:mt-16"
+            id="app-preview"
+        >
             <div
-                class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center"
+                aria-hidden="true"
+                class="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-35% to-white dark:to-zinc-950 pointer-events-none"
+            >
+            </div>
+            <div
+                class="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 shadow-2xl shadow-indigo-500/10"
             >
                 <div
-                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
+                    class="aspect-[16/10] relative rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900"
                 >
-                    <h2 class="font-medium text-zinc-900 dark:text-white mb-1">
-                        MIT License
-                    </h2>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        Free and open source forever
-                    </p>
-                </div>
-                <div
-                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
-                >
-                    <h2 class="font-medium text-zinc-900 dark:text-white mb-1">
-                        Self-Hosted
-                    </h2>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        Full control over your data
-                    </p>
-                </div>
-                <div
-                    class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-4"
-                >
-                    <h3 class="font-medium text-zinc-900 dark:text-white mb-1">
-                        Extensible
-                    </h3>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        Build your own features
-                    </p>
+                    <img
+                        src="https://raw.githubusercontent.com/kaneo-app/.github/refs/heads/main/profile/assets/board.png"
+                        alt="Kaneo application interface"
+                        class="object-fit rounded-lg transition-transform duration-700 hover:scale-[1.02]"
+                    />
                 </div>
             </div>
         </div>
@@ -112,20 +123,68 @@ import { ExternalLink, Github, Terminal } from "lucide-astro";
 <script>
     import { gsap } from "gsap";
     gsap.fromTo(
-        "#headline h1",
+        "#headline > *:not(a)",
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power4.out",
+        },
     );
 
     gsap.fromTo(
-        "#headline p",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.2 },
+        "#headline > a",
+        {
+            opacity: 0,
+            y: -20,
+            scale: 0.95,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "elastic.out(1, 0.5)",
+        },
     );
 
-    gsap.fromTo(
-        "#open-source-section",
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.2 },
-    );
+    const img = document.querySelector(".relative.overflow-hidden img");
+    if (img) {
+        gsap.fromTo(
+            img,
+            {
+                opacity: 0,
+                scale: 0.95,
+                y: 20,
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 1.2,
+                delay: 0.5,
+                ease: "power4.out",
+            },
+        );
+    }
+
+    // Add parallax effect to background gradients
+    const gradients = document.querySelectorAll(".absolute.inset-x-0.top-0");
+    window.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+
+        gradients.forEach((gradient, index) => {
+            const factor = index === 0 ? 1 : -1;
+            gsap.to(gradient, {
+                x: mouseX * 50 * factor,
+                y: mouseY * 50 * factor,
+                duration: 1,
+                ease: "power2.out",
+            });
+        });
+    });
 </script>
