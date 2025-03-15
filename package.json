@@ -22,7 +22,7 @@
 		"lucide-astro": "^0.473.0",
 		"satori": "^0.12.1",
 		"sharp": "^0.33.5",
-		"tailwindcss": "^4.0.9"
+		"tailwindcss": "^4.0.14"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
