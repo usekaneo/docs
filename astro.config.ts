@@ -13,7 +13,7 @@ export default defineConfig({
 		sitemap(),
 		starlight({
 			editLink: {
-				baseUrl: "https://github.com/kaneo-app/landing-page/tree/main",
+				baseUrl: "https://github.com/usekaneo/docs/tree/main",
 			},
 			expressiveCode: {
 				styleOverrides: {
@@ -25,9 +25,9 @@ export default defineConfig({
 			},
 			title: "Kaneo",
 			social: {
-				twitter: "https://twitter.com/kaneoapp",
-				github: "https://github.com/kaneo-app",
-				"x.com": "https://x.com/kaneoapp",
+				twitter: "https://twitter.com/usekaneo",
+				github: "https://github.com/usekaneo",
+				"x.com": "https://x.com/usekaneo",
 			},
 			head: [
 				{

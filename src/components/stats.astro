@@ -46,8 +46,8 @@ async function fetchGitHubStats(): Promise<GitHubStats> {
         }
 
         const [repoData, contributors] = await Promise.all([
-            fetch("https://api.github.com/repos/kaneo-app/app"),
-            fetch("https://api.github.com/repos/kaneo-app/app/contributors"),
+            fetch("https://api.github.com/repos/usekaneo/kaneo"),
+            fetch("https://api.github.com/repos/usekaneo/kaneo/contributors"),
         ]);
 
         const repo = await repoData.json();
