@@ -25,9 +25,9 @@ export default defineConfig({
 			},
 			title: "Kaneo",
 			social: {
-				twitter: "https://twitter.com/usekaneo",
 				github: "https://github.com/usekaneo",
 				"x.com": "https://x.com/usekaneo",
+				discord: "https://discord.gg/rU4tSyhXXU",
 			},
 			head: [
 				{
