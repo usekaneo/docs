@@ -19,7 +19,7 @@
 		"@vercel/og": "^0.6.5",
 		"astro": "^5.4.2",
 		"gsap": "^3.12.7",
-		"lucide-astro": "^0.473.0",
+		"lucide-astro": "^0.482.0",
 		"satori": "^0.12.1",
 		"sharp": "^0.33.5",
 		"tailwindcss": "^4.0.9"
