@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="relative h-[400px] sm:h-[600px]" id="laptop-container">
+    <div class="w-full relative" style="perspective: 1000px;">
+        <div
+            id="laptop-card"
+            class="max-w-5xl mx-auto h-[400px] sm:h-[600px] w-full border-4 border-zinc-700 dark:border-zinc-600 p-2 sm:p-6 bg-zinc-800 dark:bg-zinc-900 rounded-[30px] shadow-2xl"
+        >
+            <div
+                class="h-full w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900"
+            >
+                {/* Desktop Images */}
+                <Image
+                    src="https://assets.kaneo.app/board-light.png"
+                    alt="Kaneo board interface - Light mode"
+                    width={1920}
+                    height={1080}
+                    class="object-cover h-full w-full object-left-top rounded-lg transition-transform duration-700 hover:scale-[1.02] hidden sm:block dark:hidden"
+                />
+                <Image
+                    src="https://assets.kaneo.app/board-dark.png"
+                    alt="Kaneo board interface - Dark mode"
+                    width={1920}
+                    height={1080}
+                    class="object-cover h-full w-full object-left-top rounded-lg transition-transform duration-700 hover:scale-[1.02] hidden sm:dark:block"
+                />
+
+                {/* Mobile Images */}
+                <div class="relative h-full block sm:hidden">
+                    <Image
+                        src="https://assets.kaneo.app/board-light-mobile.png"
+                        alt="Kaneo board interface mobile - Light mode"
+                        width={750}
+                        height={1334}
+                        class="object-cover h-full w-full object-left-top rounded-lg transition-transform duration-700 hover:scale-[1.02] block dark:hidden"
+                    />
+                    <Image
+                        src="https://assets.kaneo.app/board-dark-mobile.png"
+                        alt="Kaneo board interface mobile - Dark mode"
+                        width={750}
+                        height={1334}
+                        class="object-cover h-full w-full object-left-top rounded-lg transition-transform duration-700 hover:scale-[1.02] hidden dark:block"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const container = document.querySelector("#laptop-container");
+    const card = document.querySelector("#laptop-card");
+
+    if (container && card) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: "top center",
+                end: "bottom center",
+                scrub: 1,
+            },
+        });
+
+        const isMobile = window.innerWidth < 640;
+
+        tl.fromTo(
+            card,
+            {
+                rotateX: isMobile ? 5 : 20,
+                scale: isMobile ? 0.98 : 1.05,
+                y: isMobile ? 10 : 50,
+            },
+            {
+                rotateX: 0,
+                scale: 1,
+                y: 0,
+            },
+        );
+    }
+</script>

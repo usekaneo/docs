@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
+import LaptopContainer from "./laptop-container.astro";
 ---
 
 <div class="relative">
@@ -27,9 +27,9 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
         </div>
     </div>
     <div
-        class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32 space-y-16 sm:space-y-20"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center lg:pt-32"
     >
-        <div id="headline">
+        <div id="headline" class="mb-8">
             <a
                 href="#features"
                 class="hover:bg-zinc-100 dark:hover:bg-zinc-800 bg-zinc-50 dark:bg-zinc-900 group mx-auto flex w-fit items-center gap-4 rounded-full border border-zinc-200 dark:border-zinc-800 p-1 pl-4 shadow-md shadow-zinc-950/5 transition-all duration-300 hover:scale-[1.02]"
@@ -59,8 +59,9 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
                     </div>
                 </div>
             </a>
+
             <h1
-                class="mx-auto max-w-4xl font-display text-4xl font-medium tracking-tight text-zinc-900 dark:text-white sm:text-7xl"
+                class="mx-auto mt-8 max-w-4xl font-display text-4xl font-medium tracking-tight text-zinc-900 dark:text-white sm:text-7xl"
             >
                 Project management{" "}
                 <span
@@ -70,12 +71,14 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
                 </span>{" "}
                 for teams
             </h1>
+
             <p
-                class="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg text-zinc-600 dark:text-zinc-400"
+                class="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-zinc-600 dark:text-zinc-400"
             >
                 An open source project management platform focused on simplicity
                 and efficiency. Self-host it, customize it, make it yours.
             </p>
+
             <div class="mt-10 flex flex-wrap justify-center gap-4">
                 <a
                     href="https://demo.kaneo.app"
@@ -96,40 +99,19 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
             </div>
         </div>
 
-        <div class="relative overflow-hidden px-2" id="app-preview">
-            <div
-                aria-hidden
-                class="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-35% to-white dark:to-zinc-950 pointer-events-none"
-            >
-            </div>
-            <div
-                class="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 shadow-2xl shadow-indigo-500/10"
-            >
-                <div
-                    class="aspect-[16/10] relative rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900"
-                >
-                    <Image
-                        src="https://assets.kaneo.app/board-light.png"
-                        alt="Kaneo board interface - Light mode"
-                        width={1920}
-                        height={1080}
-                        class="object-cover rounded-lg transition-transform duration-700 hover:scale-[1.02] block dark:hidden"
-                    />
-                    <Image
-                        src="https://assets.kaneo.app/board-dark.png"
-                        alt="Kaneo board interface - Dark mode"
-                        width={1920}
-                        height={1080}
-                        class="object-cover rounded-lg transition-transform duration-700 hover:scale-[1.02] hidden dark:block"
-                    />
-                </div>
-            </div>
+        <div class="mt-16 sm:mt-24 min-h-3/4">
+            <LaptopContainer />
         </div>
     </div>
 </div>
 
 <script>
     import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Headline animations
     gsap.fromTo(
         "#headline > *:not(a)",
         { opacity: 0, y: 20 },
@@ -159,27 +141,7 @@ import { ArrowRight, ExternalLink, Terminal } from "lucide-astro";
         },
     );
 
-    const images = document.querySelectorAll(".relative.overflow-hidden img");
-    if (images.length) {
-        gsap.fromTo(
-            images,
-            {
-                opacity: 0,
-                scale: 0.95,
-                y: 20,
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 1.2,
-                delay: 0.5,
-                ease: "power4.out",
-            },
-        );
-    }
-
-    // Add parallax effect to background gradients
+    // Parallax effect for background gradients
     const gradients = document.querySelectorAll(".aspect-\\[1155\\/678\\]");
     window.addEventListener("mousemove", (e) => {
         const mouseX = e.clientX / window.innerWidth - 0.5;
