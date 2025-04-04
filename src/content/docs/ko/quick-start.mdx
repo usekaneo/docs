@@ -1,0 +1,58 @@
+---
+title: 빠른 시작
+sidebar:
+  label: 빠른 시작
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Kaneo를 여러분의 인프라에 몇 분 만에 설치하고 실행해보세요. Kaneo는 팀이 효율적으로 협업할 수 있도록 설계된 오픈소스 프로젝트 관리 도구입니다. 몇 가지 명령어만으로 Docker Compose를 통해 프론트엔드와 백엔드를 모두 배포할 수 있습니다.
+
+## 설치 방법
+
+<Steps>
+
+1. 아래 내용을 포함한 `compose.yml` 파일을 생성합니다:
+    ```yaml title="compose.yml"
+    services:
+      backend:
+        image: ghcr.io/usekaneo/api:latest
+        environment:
+          JWT_ACCESS: "change_me"
+          DB_PATH: "/app/apps/api/data/kaneo.db"
+        ports:
+          - 1337:1337
+        restart: unless-stopped
+        volumes:
+          - sqlite_data:/app/apps/api/data
+
+      frontend:
+        image: ghcr.io/usekaneo/web:latest
+        environment:
+          KANEO_API_URL: "http://localhost:1337"
+        ports:
+          - 5173:80
+        restart: unless-stopped
+    
+    volumes:
+      sqlite_data:
+    ```
+
+2. 위 `compose.yml` 파일이 있는 디렉토리에서 다음 명령어를 실행합니다:
+    ```bash
+    docker compose up -d
+    ```
+
+3. 위 명령어를 실행하면 Kaneo의 프론트엔드와 백엔드가 함께 시작됩니다. 애플리케이션은 `http://localhost:5173`에서 확인할 수 있습니다.
+
+3. 설정해야 할 주요 환경 변수는 다음과 같습니다:
+
+    | 변수명 | 설명 |
+    |--------|------|
+    | `KANEO_API_URL` | API의 주소 |
+    | `JWT_ACCESS` | JWT 토큰 생성을 위한 비밀 키 |
+    | `DB_PATH` | 데이터베이스 파일 경로 |
+
+4. 이제 모든 준비가 완료되었습니다! 🎉
+
+</Steps>
