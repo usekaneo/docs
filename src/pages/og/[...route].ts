@@ -1,6 +1,6 @@
-import { getCollection } from "astro:content";
 import { loadFonts } from "@/utils/fonts";
 import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
 import satori from "satori";
 import sharp from "sharp";
 import { createOGImage } from "../../utils/og-image";
