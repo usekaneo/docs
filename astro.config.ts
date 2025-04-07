@@ -13,6 +13,7 @@ export default defineConfig({
 	integrations: [
 		sitemap(),
 		starlight({
+			disable404Route: true,
 			editLink: {
 				baseUrl: "https://github.com/usekaneo/docs/tree/main",
 			},
