@@ -26,11 +26,11 @@ export default defineConfig({
 				},
 			},
 			title: "Kaneo",
-			social: {
-				github: "https://github.com/usekaneo",
-				"x.com": "https://x.com/usekaneo",
-				discord: "https://discord.gg/rU4tSyhXXU",
-			},
+			social: [
+			  { icon: 'github', label: 'GitHub', href: 'https://github.com/usekaneo' },
+			  { icon: 'x.com', label: 'X.com', href: 'https://x.com/usekaneo' },
+			  { icon: 'discord', label: 'Discord', href: 'https://discord.gg/rU4tSyhXXU' },
+			],
 			head: [
 				{
 					tag: "link",
